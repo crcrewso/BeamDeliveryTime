@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using VMS.TPS.Common.Model.API;
 using VMS.TPS.Common.Model.Types;
 using System.Reflection;
+using BeamDeliveryTime;
 
 namespace VMS.TPS
 {
@@ -15,19 +16,27 @@ namespace VMS.TPS
         {
         }
 
-        public void Execute(ScriptContext context)
+        public void Execute(ScriptContext context, System.Windows.Window window)
         {
+
+            if (context.Patient == null || context.PlanSetup == null || context.PlanSetup.Dose == null || context.StructureSet == null)
+            {
+                throw new ApplicationException("Please load a patient, structure set, and a plan that has dose calculated!");
+            }
+            var plan = context.PlanSetup;
+
+            Window deliverywpf = new BeamDeliveryTime.MainWindow(plan);
+
+            deliverywpf.Show();
+            deliverywpf.Activate();
+            deliverywpf.Topmost = true;
+
+            window.Content = deliverywpf;
+            window.SizeToContent = SizeToContent.WidthAndHeight;
+            window.ResizeMode = ResizeMode.NoResize;
             //var plan = context.PlanSetup;
 
-            var assemblypath = @"\\SVSTOROPRD01\VA_Transfer\AriaScripting\Development\BeamDeliveryTime\BeamDeliveryTime\bin\Release\BeamDeliveryTime.exe";
-            var assem = Assembly.UnsafeLoadFrom(assemblypath);
-            var script = Activator.CreateInstanceFrom(assemblypath, "BeamDeliveryTime.CalculatorXScript").Unwrap();
-            var type = script.GetType();
-            type.InvokeMember("Execute",
-                BindingFlags.Default | BindingFlags.InvokeMethod,
-                null,
-                script,
-                new object[] { context });
+
         }
     }
 }

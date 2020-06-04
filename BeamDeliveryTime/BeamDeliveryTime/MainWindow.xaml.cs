@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using VMS.TPS.Common.Model.API;
 using VMS.TPS.Common.Model.Types;
 
@@ -259,29 +261,6 @@ namespace BeamDeliveryTime
         public string column2 { get; set; }
         public string column3 { get; set; }
         public string column4 { get; set; }
-    }
-
-    public class BeamTimes
-    {
-        public string BeamName { get; set; }
-        public double BeamOnTime { get; set; }
-        public double MLCTravelTime { get; set; }
-        public double gantryangle { get; set; }
-        public string energy { get; set; }
-    }
-    public class GroupBeams
-    {
-        public string BeamName { get; set; }
-        public string subBeamName { get; set; }
-        public int GroupNum { get; set; }
-        public int BeamOrder { get; set; }
-        public double GantryAng { get; set; }
-        public string BeamEnergy { get; set; }
-        public double FieldX1 { get; set; }
-        public double FieldX2 { get; set; }
-        public double FieldY1 { get; set; }
-        public double FieldY2 { get; set; }
-
     }
 
 
