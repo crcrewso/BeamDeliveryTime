@@ -1,6 +1,6 @@
 ﻿namespace BeamDeliveryTime
 {
-    public class GroupBeams
+    internal class GroupBeams
     {
         public string BeamName { get; set; }
         public string subBeamName { get; set; }
@@ -12,9 +12,5 @@
         public double FieldX2 { get; set; }
         public double FieldY1 { get; set; }
         public double FieldY2 { get; set; }
-
     }
-
-
-        
 }

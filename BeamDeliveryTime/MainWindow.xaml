@@ -1,8 +1,6 @@
-﻿<Window x:Class="BeamDeliveryTime.MainWindow"
+﻿<UserControl x:Class="BeamDeliveryTime.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BeamDeliveryTimeCalculator" Height="300" Width="810" 
-        WindowStartupLocation="CenterOwner" Left="200" Top="100" FontSize="16" SizeToContent="Height">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- Height was "Auto" -->
     <Grid>
         <DataGrid Name="DeliveryTimeGrid" CanUserAddRows="False" HorizontalAlignment="Right" VerticalAlignment="Top" 
@@ -68,4 +66,4 @@
 
 
     </Grid>
-</Window>
+</UserControl>

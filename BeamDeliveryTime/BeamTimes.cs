@@ -1,6 +1,6 @@
 ﻿namespace BeamDeliveryTime
 {
-    public class BeamTimes
+    internal class BeamTimes
     {
         public string BeamName { get; set; }
         public double BeamOnTime { get; set; }
@@ -8,7 +8,4 @@
         public double gantryangle { get; set; }
         public string energy { get; set; }
     }
-
-
-        
 }
